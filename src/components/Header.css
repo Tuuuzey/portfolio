@@ -1,0 +1,370 @@
+/* ================================
+   DESKTOP HEADER
+   ================================ */
+
+.desktop-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.5rem 2rem;
+  font-size: 100%;
+  transition: padding 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70px;
+  background-color: rgba(39, 39, 39, 0.322);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2), 
+              0px -1px 3px rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Header shrinking on scroll */
+.desktop-header.shrink {
+  padding: 0.2rem 2rem;
+}
+
+.desktop-header.shrink .header-container {
+  min-height: 50px;
+  box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.15),
+              0px -1px 2px rgba(255, 255, 255, 0.05);
+}
+
+.desktop-header.shrink .header-left,
+.desktop-header.shrink .header-right {
+  transform: scale(0.9);
+}
+
+.desktop-header.shrink .header-middle {
+  margin: 0.4rem;
+  padding: 0.2rem 0.5rem;
+}
+
+/* ================================
+   HEADER SECTIONS
+   ================================ */
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: wheat;
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+
+.header-left {
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.header-right {
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.header-middle {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.116);
+  border-radius: 40px;
+  margin: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: fit-content;
+  transition: all 0.3s ease;
+}
+
+/* ================================
+   NAVIGATION
+   ================================ */
+
+.navigation-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.navigation-list li {
+  padding: 0.3rem 1rem;
+  list-style: none;
+}
+
+.navigation-list button {
+  background: none;
+  color: wheat;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: all 0.2s ease;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.navigation-list button:hover {
+  color: rgb(255, 247, 231);
+}
+
+/* ================================
+   SOCIAL ICONS
+   ================================ */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* Fix for preventing scrollbar on hover */
+  overflow: hidden;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: wheat;
+  /* Prevent overflow when scaling */
+  overflow: hidden;
+}
+
+.social-icons a:hover {
+  transform: scale(1.05);
+}
+
+/* ================================
+   DOWNLOAD CV LINK
+   ================================ */
+
+.download-button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid wheat;
+  background-color: transparent;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  color: rgb(192, 192, 192);
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.014);
+}
+
+/* ================================
+   MOBILE HEADER
+   ================================ */
+
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(39, 39, 39, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2),
+              0px -1px 3px rgba(255, 255, 255, 0.1);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  min-height: 60px;
+}
+
+/* ================================
+   MOBILE LOGO
+   ================================ */
+
+.mobile-logo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  /* Fix for preventing scrollbar on hover */
+  overflow: hidden;
+}
+
+.mobile-logo a {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  /* Prevent overflow when scaling */
+  overflow: hidden;
+}
+
+/* ================================
+   HAMBURGER MENU
+   ================================ */
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: wheat;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ================================
+   MOBILE MENU
+   ================================ */
+
+.mobile-menu {
+  overflow: hidden;
+  background-color: rgba(39, 39, 39, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.mobile-menu.open {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-list li:last-child {
+  border-bottom: none;
+}
+
+/* ================================
+   MOBILE MENU BUTTONS
+   ================================ */
+
+.mobile-menu-list button {
+  position: relative;
+  font-size: 1.2rem;
+  padding: 15px 15px 15px 3rem;
+  color: wheat;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.mobile-menu-list button::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-list button:hover {
+  color: #ffd700;
+  padding-left: 4rem;
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.mobile-menu-list button:hover::before {
+  transform: scaleY(1);
+}
+
+/* ================================
+   MOBILE DOWNLOAD CV LINK
+   ================================ */
+
+.mobile-menu-list li:last-child a {
+  display: block;
+  padding: 15px 15px 15px 3rem;
+  color: wheat;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-menu-list li:last-child a::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(45deg, #1e90ff, #00bfff);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-list li:last-child a:hover {
+  background-color: rgba(30, 144, 255, 0.2);
+  color: #1e90ff;
+  padding-left: 4rem;
+}
+
+.mobile-menu-list li:last-child a:hover::before {
+  transform: scaleY(1);
+}

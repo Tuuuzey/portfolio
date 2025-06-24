@@ -1,0 +1,76 @@
+.about-me {
+  padding: 2rem;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.about-me h1 {
+  background: linear-gradient(270deg, #d47120, #cc8144, #ce8c11, #cc8144, #d47120);
+  margin-bottom: 1.5rem;
+  background-size: 1000% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-flow 10s ease-in-out infinite;
+  font-size: 2.7rem;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.about-me p {
+  line-height: 1.8;
+  color: wheat;
+  font-size: 1.7rem;
+}
+
+#localization {
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 1000px) {
+  .about-me h1 {
+    font-size: 2.2rem;
+  }
+  .about-me p {
+    font-size: 1.4rem;
+  }
+  #localization {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 720px) {
+  .about-me h1 {
+    font-size: 1.8rem;
+  }
+  .about-me p {
+    font-size: 1rem;
+  }
+  #localization {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .about-me h1 {
+    font-size: 1.4rem;
+  }
+  .about-me p {
+    font-size: 0.8rem;
+  }
+  #localization {
+    font-size: 0.6rem;
+  }
+}
+
+
+
