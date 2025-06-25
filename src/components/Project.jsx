@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import './Project.css';
 
 export default function Project({
@@ -9,96 +8,87 @@ export default function Project({
   images,
   githubLink,
   liveLink,
-  leftSide = false
+  leftSide = false,
 }) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  const nextImage = () => {
-    if (images?.length > 1) {
-      setDirection(1);
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevImage = () => {
-    if (images?.length > 1) {
-      setDirection(-1);
-      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-    }
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const handleImageClick = () => {
-    if (liveLink) {
-      window.open(liveLink, '_blank');
-    }
+    if (liveLink) window.open(liveLink, '_blank');
   };
 
   return (
     <div className={`project-container ${leftSide ? 'left-side' : 'right-side'}`}>
+      {/* Image Slider */}
       <div
         className="image-section"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleImageClick}
       >
-        {images?.length > 0 && (
-          <div className="image-wrapper">
-            <AnimatePresence initial={false} custom={direction} mode="wait">
-              <motion.img
-                key={currentImageIndex}
-                src={images[currentImageIndex]}
-                alt={title}
-                className="project-image motion-image"
-                custom={direction}
-                initial={{ x: direction > 0 ? -650 : 650, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: direction > 0 ? 650 : -650, opacity: 0 }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }}
-              />
-            </AnimatePresence>
-          </div>
-        )}
-
-        {/* Navigation arrows */}
-        {images.length > 1 && isHovered && (
+        {images && images.length > 0 && (
           <>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevImage();
-              }}
-              className="nav-arrow nav-arrow-left"
-            >
-              <ChevronLeft size={24} />
-            </button>
+            <div className="slider-wrapper" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {images.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`${title}-${index}`}
+                  className={`slider-image ${isHovered ? 'hovered' : ''}`}
+                />
+              ))}
+            </div>
 
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextImage();
-              }}
-              className="nav-arrow nav-arrow-right"
-            >
-              <ChevronRight size={24} />
-            </button>
+            {images.length > 1 && isHovered && (
+              <>
+                <button
+                  className="nav-arrow nav-arrow-left"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPrevious();
+                  }}
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  className="nav-arrow nav-arrow-right"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNext();
+                  }}
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </>
+            )}
+
+            {images.length > 1 && (
+              <div className="image-indicators">
+                {images.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`indicator-dot ${index === currentIndex ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentIndex(index);
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </>
-        )}
-
-        {/* Dots */}
-        {images.length > 1 && (
-          <div className="image-indicators">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`indicator-dot ${index === currentImageIndex ? 'active' : ''}`}
-              />
-            ))}
-          </div>
         )}
       </div>
 
+      {/* Text Content */}
       <div className="content-section">
         <h1 className="project-title">{title}</h1>
         <p className="project-description">{description}</p>

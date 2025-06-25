@@ -77,9 +77,7 @@ const Projects = () => {
       <div className="projects-container">
         <header className="projects-header">
           <h2 className="projects-title">My Projects</h2>
-          <p className="projects-subtitle">
-            A collection of my recent work.
-          </p>
+          <p className="projects-subtitle">A collection of my recent work.</p>
         </header>
 
         <div className="projects-list">

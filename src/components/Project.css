@@ -4,12 +4,13 @@
   width: 90%;
   max-width: 1152px; /* max-w-6xl equivalent */
   margin: 0 auto;
-  height: 700px;
-  background-color: black;
+  height: 500px;
+  background-color: rgb(22, 22, 22);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
   min-height: 400px;
+  box-shadow: 2px 4px 8px black;
 }
 
 .project-container.left-side {
@@ -31,6 +32,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 /* Navigation Arrows */
@@ -42,7 +44,6 @@
   color: white;
   border: none;
   padding: 8px;
-  border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -75,7 +76,6 @@
 .indicator-dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   transition: all 0.2s ease;
 }
@@ -128,21 +128,22 @@
 }
 
 .github-button {
-  background-color: #374151; /* gray-700 */
   color: white;
+  border: 1px solid #fd9b2a;   
 }
 
 .github-button:hover {
-  background-color: #4B5563; /* gray-600 */
+  background-color: #fd9b2a; 
 }
 
 .live-button {
-  background-color: #D97706; /* amber-600 */
+  background-color: #eeb26d;
+  border: 1px solid black;
   color: white;
 }
 
 .live-button:hover {
-  background-color: #B45309; /* amber-700 */
+  background-color: rgb(17, 17, 17); 
 }
 
 /* Mobile Responsive */
@@ -153,7 +154,7 @@
   }
   
   .image-section {
-    height: 256px; /* 16rem */
+    height: 256px;
   }
   
   .content-section {
@@ -161,11 +162,11 @@
   }
   
   .project-title {
-    font-size: 1.875rem; /* text-3xl */
+    font-size: 1.875rem; 
   }
   
   .project-description {
-    font-size: 1rem; /* text-base */
+    font-size: 1rem;
     margin-bottom: 24px;
   }
   
@@ -183,6 +184,7 @@
   position: relative;
   cursor: pointer;
   overflow: hidden;
+
 }
 
 .image-wrapper {

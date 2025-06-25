@@ -1,1 +1,2 @@
-napraw animacje przejscia zdjec w project
+fix:
+  project media max-width
