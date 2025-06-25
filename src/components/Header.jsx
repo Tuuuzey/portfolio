@@ -23,7 +23,8 @@ const TRANSFORM_VALUES = {
   sideOpacity: [1, 0],
   sideScale: [1, 0],
   leftRightMargin: [8, 2],
-  borderRadius: [8, 25]
+  borderRadius: [8, 25],
+  headerWidth: [100, 40] 
 };
 
 export default function Header({ sectionRefs }) {
@@ -115,7 +116,6 @@ export default function Header({ sectionRefs }) {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
               >
-                {/* Fixed LinkedIn icon - using height="30" and object-fit */}
                 <img 
                   src={LinkedinIcon} 
                   width="30" 

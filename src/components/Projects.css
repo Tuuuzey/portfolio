@@ -1,0 +1,222 @@
+/* Projects.css */
+
+.projects-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+  padding: 80px 0;
+  position: relative;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(245, 222, 179, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(245, 222, 179, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(245, 222, 179, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.projects-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: wheat;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.projects-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, wheat, transparent);
+  border-radius: 2px;
+}
+
+.projects-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Projects List */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.project-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  position: relative;
+}
+
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.2s; }
+.project-item:nth-child(3) { animation-delay: 0.3s; }
+.project-item:nth-child(4) { animation-delay: 0.4s; }
+.project-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Decorative elements */
+.project-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(180deg, transparent, rgba(245, 222, 179, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover::before {
+  opacity: 1;
+}
+
+.project-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(180deg, transparent, rgba(245, 222, 179, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover::after {
+  opacity: 1;
+}
+
+/* Hover Effects */
+.project-item:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.projects-title {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projects-section {
+    padding: 60px 0;
+  }
+  
+  .projects-container {
+    padding: 0 15px;
+  }
+  
+  .projects-header {
+    margin-bottom: 60px;
+  }
+  
+  .projects-title {
+    font-size: 3rem;
+  }
+  
+  .projects-list {
+    gap: 80px;
+  }
+  
+  .project-item::before,
+  .project-item::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 40px 0;
+  }
+  
+  .projects-header {
+    margin-bottom: 40px;
+  }
+  
+  .projects-title {
+    font-size: 2.5rem;
+  }
+  
+  .projects-subtitle {
+    font-size: 1.125rem;
+    padding: 0 10px;
+  }
+  
+  .projects-list {
+    gap: 60px;
+  }
+  
+  .project-item:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+  
+  .projects-subtitle {
+    font-size: 1rem;
+  }
+  
+  .projects-list {
+    gap: 40px;
+  }
+}
