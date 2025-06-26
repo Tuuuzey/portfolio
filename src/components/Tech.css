@@ -1,0 +1,260 @@
+.tech-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 2rem;
+  perspective: 800px;
+}
+
+.tech-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 0.5px solid transparent; 
+  background: linear-gradient(to bottom right, rgb(243, 210, 149), rgb(247, 235, 214));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tech-circle::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.tech-logo-img {
+  width: 106px;
+  height: 106px;
+  background-color: rgba(8, 7, 7, 0.966);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.tech-desc {
+  font-size: 15px;
+  color: rgb(151, 151, 151);
+  text-shadow: black;
+}
+
+.tech-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.tech-header {
+  font-size: 3.4rem;
+  margin-bottom: 1.5rem;
+  background-size: 1000% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-flow 8s ease-in-out infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Duże ekrany desktop */
+@media (max-width: 1600px) {
+  .tech-header {
+    font-size: 3rem;
+    margin-bottom: 1.3rem;
+  }
+  
+  .tech-circle {
+    width: 92px;
+    height: 92px;
+  }
+  
+  .tech-logo-img {
+    width: 88px;
+    height: 88px;
+    padding: 9px;
+  }
+  
+  .tech-circle::before {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .tech-desc {
+    font-size: 14px;
+  }
+  
+  .tech-group {
+    gap: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .tech-header {
+    font-size: 2.6rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .tech-circle {
+    width: 76px;
+    height: 76px;
+  }
+  
+  .tech-logo-img {
+    width: 72px;
+    height: 72px;
+    padding: 8px;
+  }
+  
+  .tech-circle::before {
+    width: 53px;
+    height: 53px;
+  }
+  
+  .tech-desc {
+    font-size: 13px;
+  }
+  
+  .tech-group {
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+  
+  .tech-wrapper {
+    gap: 0.4rem;
+    line-height: 1.8rem;
+    perspective: 700px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .tech-header {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-circle {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .tech-logo-img {
+    width: 68px;
+    height: 68px;
+    padding: 7px;
+  }
+  
+  .tech-circle::before {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .tech-desc {
+    font-size: 12px;
+  }
+  
+  .tech-group {
+    gap: 0.7rem;
+    margin-bottom: 1.4rem;
+  }
+  
+  .tech-wrapper {
+    gap: 0.3rem;
+    line-height: 1.6rem;
+    perspective: 600px;
+  }
+}
+
+/* Tablety */
+@media (max-width: 720px) {
+  .tech-header {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .tech-circle {
+    width: 62px;
+    height: 62px;
+  }
+  
+  .tech-logo-img {
+    width: 58px;
+    height: 58px;
+    padding: 6px;
+  }
+  
+  .tech-circle::before {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .tech-desc {
+    font-size: 11px;
+  }
+  
+  .tech-group {
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .tech-wrapper {
+    gap: 0.25rem;
+    line-height: 1.4rem;
+    perspective: 500px;
+  }
+}
+
+/* Telefony */
+@media (max-width: 480px) {
+  .tech-header {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .tech-circle {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .tech-logo-img {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+  }
+  
+  .tech-circle::before {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .tech-desc {
+    font-size: 10px;
+  }
+  
+  .tech-group {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-wrapper {
+    gap: 0.2rem;
+    line-height: 1.2rem;
+    perspective: 400px;
+  }
+}

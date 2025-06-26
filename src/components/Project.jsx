@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaGithub } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { LiaChevronCircleLeftSolid, LiaChevronCircleRightSolid  } from "react-icons/lia";
+
 import './Project.css';
+import { motion } from 'framer-motion'
 
 export default function Project({
   title,
@@ -13,20 +17,28 @@ export default function Project({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  const goToNext = () => {
+  function goToNext() {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
-
-  const goToPrevious = () => {
+  function goToPrevious() {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  const handleImageClick = () => {
+  function handleImageClick() {
     if (liveLink) window.open(liveLink, '_blank');
   };
 
+
+
   return (
-    <div className={`project-container ${leftSide ? 'left-side' : 'right-side'}`}>
+      <motion.div
+        className={`project-container ${leftSide ? 'left-side' : 'right-side'}`}
+        initial={{ opacity: 0, rotateX: 20, transformPerspective: 1000 }}
+        whileInView={{ opacity: 1, rotateX: 0 }}
+        viewport={{ amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+
       {/* Image Slider */}
       <div
         className="image-section"
@@ -56,7 +68,7 @@ export default function Project({
                     goToPrevious();
                   }}
                 >
-                  <ChevronLeft size={24} />
+                  <LiaChevronCircleLeftSolid size={24} />
                 </button>
                 <button
                   className="nav-arrow nav-arrow-right"
@@ -65,7 +77,7 @@ export default function Project({
                     goToNext();
                   }}
                 >
-                  <ChevronRight size={24} />
+                  <LiaChevronCircleRightSolid size={24} />
                 </button>
               </>
             )}
@@ -96,18 +108,18 @@ export default function Project({
         <div className="buttons-container">
           {githubLink && (
             <a href={githubLink} target="_blank" rel="noopener noreferrer" className="project-button github-button">
-              <Github size={20} />
+              <FaGithub size={20} />
               GitHub
             </a>
           )}
           {liveLink && (
             <a href={liveLink} target="_blank" rel="noopener noreferrer" className="project-button live-button">
-              <ExternalLink size={20} />
+              <FaExternalLinkAlt size={20} />
               Live Demo
             </a>
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

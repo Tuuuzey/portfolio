@@ -1,0 +1,34 @@
+.techs-text {
+  text-align: center;
+}
+
+.techs-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: wheat;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.techs-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, wheat, transparent);
+  border-radius: 2px;
+}
+
+.techs-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}

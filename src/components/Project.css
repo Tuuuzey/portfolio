@@ -1,8 +1,6 @@
-/* Project.css */
-
 .project-container {
   width: 90%;
-  max-width: 1152px; /* max-w-6xl equivalent */
+  max-width: 1152px;
   margin: 0 auto;
   height: 500px;
   background-color: rgb(22, 22, 22);
@@ -12,6 +10,7 @@
   min-height: 400px;
   box-shadow: 2px 4px 8px black;
 }
+
 
 .project-container.left-side {
   flex-direction: row;
@@ -94,7 +93,7 @@
 }
 
 .project-title {
-  font-size: 2.25rem; /* text-4xl */
+  font-size: 2.25rem;
   font-weight: bold;
   color: wheat;
   margin-bottom: 24px;
@@ -103,7 +102,7 @@
 
 .project-description {
   color: white;
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 32px;
 }
@@ -129,21 +128,21 @@
 
 .github-button {
   color: white;
-  border: 1px solid #fd9b2a;   
+  border: 1px solid black;   
 }
 
 .github-button:hover {
-  background-color: #fd9b2a; 
+  scale: 1.06; 
 }
 
 .live-button {
-  background-color: #eeb26d;
   border: 1px solid black;
-  color: white;
+  background: linear-gradient(to bottom right, rgb(243, 210, 149), rgb(247, 235, 214));
+  color: black;
 }
 
 .live-button:hover {
-  background-color: rgb(17, 17, 17); 
+  scale: 1.06; 
 }
 
 /* Mobile Responsive */
