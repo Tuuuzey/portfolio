@@ -24,40 +24,44 @@ import git from '../assets/techLogos/git.png'
 import docker from '../assets/techLogos/docker.png' 
 
 export default function Techs() {
+
+
   return (
     <>
       <div className='techs-text'>
         <h2 className='techs-title'>Technologies</h2>
-        <p className='techs-subtitle'>that i use.</p>
+        <p className='techs-subtitle'>that i use</p>
       </div>
 
-       <div className="tech-group">
-        <Tech image={html} desc={'HTML'} />
-        <Tech image={css} desc={'CSS'} />
-        <Tech image={js} desc={'JS'} />
-        <Tech image={react} desc={'REACT'} />
-        <Tech image={tw} desc={'TAILWIND'} />
-        <Tech image={bs} desc={'BOOTSTRAP'} />
-      </div>
+      <div className='techs-wrapper'>
+        <div className="tech-group" >
+          <Tech image={html} desc={'HTML'} />
+          <Tech image={css} desc={'CSS'} />
+          <Tech image={js} desc={'JS'} />
+          <Tech image={react} desc={'REACT'} />
+          <Tech image={tw} desc={'TAILWIND'} />
+          <Tech image={bs} desc={'BOOTSTRAP'} />
+        </div>
 
-      <div className="tech-group">
-        <Tech image={ts} desc={'TS'} />
-        <Tech image={nextjs} desc={'NEXT JS'} />
-        <Tech image={njs} desc={'NODE JS'} />
-        <Tech image={java} desc={'JAVA'} />
-        <Tech image={python} desc={'PYTHON'} />
-        <Tech image={django} desc={'DJANGO'} />
-        <Tech image={flask} desc={'FLASK'} />
-        <Tech image={php} desc={'PHP'} />
-        <Tech image={postgre} desc={'POSTGRE SQL'} />
-        <Tech image={mongodb} desc={'MONGODB'} />
-        <Tech image={sql} desc={'SQL'} />
-      </div>
+        <div className="tech-group" >
+          <Tech image={ts} desc={'TS'} />
+          <Tech image={nextjs} desc={'NEXT JS'} />
+          <Tech image={njs} desc={'NODE JS'} />
+          <Tech image={java} desc={'JAVA'} />
+          <Tech image={python} desc={'PYTHON'} />
+          <Tech image={django} desc={'DJANGO'} />
+          <Tech image={flask} desc={'FLASK'} />
+          <Tech image={php} desc={'PHP'} />
+          <Tech image={postgre} desc={'POSTGRE SQL'} />
+          <Tech image={mongodb} desc={'MONGODB'} />
+          <Tech image={sql} desc={'SQL'} />
+        </div>
 
-      <div className="tech-group">
-        <Tech image={git} desc={'GIT'} />
-        <Tech image={docker} desc={'DOCKER'} />
+        <div className="tech-group" >
+          <Tech image={git} desc={'GIT'} />
+          <Tech image={docker} desc={'DOCKER'} />
+        </div>
       </div>
-    </> 
-  )
+    </>
+  );
 }

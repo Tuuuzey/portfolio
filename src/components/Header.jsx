@@ -69,18 +69,22 @@ export default function Header({ sectionRefs }) {
   const scrollToSection = (sectionKey) => {
     const section = sectionRefs[sectionKey]?.current;
     if (!section) return;
-
+    let offset = -100;
     if (sectionKey === 'contact') {
       const elementRect = section.getBoundingClientRect();
       const elementTop = window.pageYOffset + elementRect.top;
-      const scrollY = elementTop - (window.innerHeight - elementRect.height);
+      const scrollY = elementTop - (window.innerHeight - elementRect.height) + 210;
 
       window.scrollTo({
         top: scrollY,
         behavior: 'smooth',
       });
-    } else {
-      const offset = -100;
+    }
+    else if(sectionKey === 'about') {
+      offset = 0;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    else {
       const top = section.getBoundingClientRect().top + window.scrollY + offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }

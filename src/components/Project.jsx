@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FaGithub } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { LiaChevronCircleLeftSolid, LiaChevronCircleRightSolid  } from "react-icons/lia";
+import { LiaChevronCircleLeftSolid, LiaChevronCircleRightSolid } from "react-icons/lia";
 
 import './Project.css';
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Project({
   title,
@@ -17,28 +17,30 @@ export default function Project({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const rotateX = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [20, 0, 0, -20]);
+
   function goToNext() {
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }
   function goToPrevious() {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
+  }
   function handleImageClick() {
     if (liveLink) window.open(liveLink, '_blank');
-  };
-
-
+  }
 
   return (
-      <motion.div
-        className={`project-container ${leftSide ? 'left-side' : 'right-side'}`}
-        initial={{ opacity: 0, rotateX: 20, transformPerspective: 1000 }}
-        whileInView={{ opacity: 1, rotateX: 0 }}
-        viewport={{ amount: 0.2 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-
+    <motion.div
+      ref={ref}
+      className={`project-container ${leftSide ? 'left-side' : 'right-side'}`}
+      style={{ rotateX, transformPerspective: 1000 }}
+    >
       {/* Image Slider */}
       <div
         className="image-section"

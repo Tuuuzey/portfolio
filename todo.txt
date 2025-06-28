@@ -1,6 +1,0 @@
-fix:
-  project media max-width
-  animation of project apearing
-
-do:
-  footer

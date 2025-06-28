@@ -5,6 +5,9 @@
   gap: 0.5rem;
   line-height: 2rem;
   perspective: 800px;
+  background-color: rgb(17,17,17);
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .tech-circle {
@@ -38,7 +41,7 @@
 
 .tech-desc {
   font-size: 15px;
-  color: rgb(151, 151, 151);
+  color: wheat;
   text-shadow: black;
 }
 

@@ -1,5 +1,4 @@
-// Projects.jsx
-import React from 'react';
+
 import Project from './Project';
 import './Projects.css';
 
